@@ -1,0 +1,36 @@
+<%- include("template/cabecera", {tituloWeb : 'Pagina web de Mascotas' }) %>
+    <div class="container">
+        <h1>Mascotas con EJS</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (ArrayMascotas.length > 0) { %>
+                    <% ArrayMascotas.forEach(element => { %>
+                        <tr>        
+                            <th scope="row">
+                                <%= element.id %>
+                            </th>
+                            <th>
+                                <%= element.nombre %>
+                            </th>
+                            <td>
+                                <%= element.descripcion %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="3">No hay mascotas disponibles.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        
+    </div>
+    <%- include("template/footer") %>
